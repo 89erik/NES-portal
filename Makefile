@@ -3,11 +3,10 @@
 ####################################################################
 # Definitions                                                      #
 ####################################################################
-SHELL = C:/Windows/System32/cmd.exe
 PROJECTNAME = breakout
 
-CC       = ca65.exe
-LD       = ld65.exe
+CC       = ca65
+LD       = ld65
 
 RM       = rm -rf
 SRC 	 = main.asm
@@ -29,7 +28,7 @@ main.o: $(SRC)
 
 # Link
 $(PROJECTNAME).nes: main.o
-	$(LD) -C $(L_SCRIPT) main.o -o $(PROJECTNAME).nes
+	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) main.o
 
 clean:
 	$(RM) main.o
