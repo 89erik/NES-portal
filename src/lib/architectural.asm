@@ -108,7 +108,7 @@ ASR:
     @negative:
         PLA
         TAX
-        CMP #-1
+        CMP #255 ; -1
         BEQ @minus_one
         AND #%10000000
         BEQ @no_s_bit_preservation
