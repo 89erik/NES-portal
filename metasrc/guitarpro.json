@@ -1,0 +1,120 @@
+{
+    "type": "sound",
+    "name": "GuitarPro",
+    "notes": [
+        {
+            "length": 16,
+            "tones": [[294, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[440, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[5,87, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[6,5,9, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 2,
+            "tones": [[440, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 2,
+            "tones": [[5,87, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 12,
+            "tones": [[7,40, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[6,5,9, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[5,87, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [[440, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 32,
+            "tones": [
+                [5,87, 1, 1],
+                [26,2, 1, 2]
+            ]
+        },
+        {
+            "length": 16,
+            "tones": [[392, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 32,
+            "tones": [
+                [5,87, 1, 1],
+                [247, 1, 2]
+            ]
+        },
+        {
+            "length": 2,
+            "tones": [[233, 1, 1]]
+        },
+        {
+            "length": 2,
+            "tones": [[392, 1, 2]]
+        },
+        {
+            "length": 124,
+            "tones": [[5,87, 1, 2]]
+        },
+        {
+            "length": 16,
+            "tones": [[220, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[440, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[330, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[494, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[5,5,4, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 16,
+            "tones": [[5,87, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 32,
+            "tones": [[6,5,9, "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 5,
+            "tones": [[294, 1, 1]]
+        },
+        {
+            "length": 6,
+            "tones": [[440, 1, 2]]
+        },
+        {
+            "length": 7,
+            "tones": [[5,5,4, 1, 1]]
+        },
+        {
+            "length": 112,
+            "tones": [[7,40, 1, 2]]
+        }
+    ]
+}

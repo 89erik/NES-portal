@@ -1,0 +1,70 @@
+{
+    "type": "sound",
+    "name": "NoRemorse",
+    "notes": [
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["G4", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["Fs4", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E4", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["D4", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E3", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["D4", "GUITAR_PRO_TONE_LENGTH", 1]]
+        },
+        {
+            "length": 10,
+            "tones": [["E4", "GUITAR_PRO_TONE_LENGTH", 1]]
+        }
+    ]
+}

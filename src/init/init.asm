@@ -65,6 +65,7 @@ JMP @done
     STA scroll
 	STA kill_count
     STA music_index
+    JSR NoRemorseInitVariables
     
 ; -[INIT GAME-INDEPENDENT OAM DATA]-
     ; PLAYER 1 AND 2 SCORES 

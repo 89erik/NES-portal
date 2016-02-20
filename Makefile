@@ -7,10 +7,14 @@ PROJECTNAME = portal
 
 CC       = ca65
 LD       = ld65
+PREPROCESS = preprocessor/preprocess.py
 
 RM       = rm -rf
-SRC 	 = main.asm
 L_SCRIPT = linker_config.cfg
+
+BUILD_DIR = build
+
+SRC 	 = main.asm guitarpro.asm
 
 
 ####################################################################
@@ -18,18 +22,28 @@ L_SCRIPT = linker_config.cfg
 ####################################################################
 
 
-# Default build is debug build
 all: clean
+all: $(BUILD_DIR)
 all: $(PROJECTNAME).nes
+all: build/no_remorse.asm
+
+$(BUILD_DIR):
+	$(shell mkdir $(BUILD_DIR))
+
+
+# Create asm source files from meta sources
+$(BUILD_DIR)/%.asm: metasrc/%.json
+	$(PREPROCESS) -o $@ $<
 
 # Create objects from asm source file
-main.o: $(SRC)
-	$(CC) $<
+%.o: %.asm
+	$(CC) -U $<
 
 # Link
-$(PROJECTNAME).nes: main.o
-	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) main.o
+$(PROJECTNAME).nes: main.o build/no_remorse.o
+	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) main.o build/no_remorse.o
 
 clean:
-	$(RM) main.o
+	$(RM) main.o 
+	$(RM) $(BUILD_DIR)
 
