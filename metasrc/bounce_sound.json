@@ -1,0 +1,9 @@
+{
+    "type": "sound",
+    "name": "BounceSound",
+    "notes": [
+        {
+            "tones": [[220, 0, 2]]
+        }
+    ]
+}

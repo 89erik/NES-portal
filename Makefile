@@ -18,7 +18,8 @@ SRC = \
 main.asm \
 src/lib/architectural.asm \
 src/lib/graphical.asm \
-build/no_remorse.asm
+build/no_remorse.asm \
+build/bounce_sound.asm
 
 OBJECTS = $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.asm=.o)))
 
