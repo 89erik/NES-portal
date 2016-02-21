@@ -1,3 +1,21 @@
+.export SignedIsNegative
+.export AbsoluteValue
+.export SignedComparison
+.export SignedIncrease
+.export SignedDecrease
+.export ASR
+.export Multiply
+.export Divide
+.export AccumulateLong
+.export AddLong
+.export MultiplyLong
+.export Sleep
+.export Halt
+
+
+.segment "CODE"
+.include "data/constants.inc"
+
 ; Is A negative?
 ; Yes: A <- 0
 ; No:  A <- 1

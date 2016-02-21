@@ -14,8 +14,6 @@ L_SCRIPT = linker_config.cfg
 
 BUILD_DIR = build
 
-SRC 	 = main.asm guitarpro.asm
-
 
 ####################################################################
 # Rules                                                            #
@@ -25,7 +23,6 @@ SRC 	 = main.asm guitarpro.asm
 all: clean
 all: $(BUILD_DIR)
 all: $(PROJECTNAME).nes
-all: build/no_remorse.asm
 
 $(BUILD_DIR):
 	$(shell mkdir $(BUILD_DIR))
@@ -37,11 +34,11 @@ $(BUILD_DIR)/%.asm: metasrc/%.json
 
 # Create objects from asm source file
 %.o: %.asm
-	$(CC) -U $<
+	$(CC) -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $<
 
 # Link
-$(PROJECTNAME).nes: main.o build/no_remorse.o
-	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) main.o build/no_remorse.o
+$(PROJECTNAME).nes: main.o build/no_remorse.o src/lib/architectural.o
+	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) build/main.o build/no_remorse.o build/architectural.o
 
 clean:
 	$(RM) main.o 

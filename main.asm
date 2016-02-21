@@ -1,6 +1,14 @@
 .include "data/constants.inc"
 .include "data/sound_constants.inc"
 
+; Exporting global variables. TODO: move to separate file
+.export v_blank_complete
+.export sub_routine_arg1
+.export sub_routine_arg2
+.export sub_routine_tmp
+.export fp
+
+
 .segment "INES"
     .byte "NES",$1A,1,1,1
     ;      012   3  4 5 6
@@ -16,7 +24,6 @@
     .incbin "data/background.chr"   ; Graphics for background (binary file)
     
 .segment "CODE"
-        .include "src/lib/architectural.asm"
         .include "src/lib/graphical.asm"
         .include "src/lib/game.asm"
         .include "src/load_level.asm"
