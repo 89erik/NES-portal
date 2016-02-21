@@ -16,6 +16,7 @@ BUILD_DIR = build
 
 SRC = \
 main.asm \
+src/v_blank.asm \
 src/lib/architectural.asm \
 src/lib/graphical.asm \
 build/no_remorse.asm \

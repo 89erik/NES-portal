@@ -24,6 +24,10 @@
 .export score
 .export score_tile
 
+.export scroll
+.export brick_present
+.export brick_tile
+
 .segment "INES"
     .byte "NES",$1A,1,1,1
     ;      012   3  4 5 6
@@ -48,8 +52,6 @@
     Start:
         .include "src/init/init.asm"        ; Initialization procedure
         .include "src/loop/loop.asm"        ; Physics to be performed per framerate
-    V_blank:
-        .include "src/v_blank.asm"          ; Drawing the screen
     No_op:
         RTI
     

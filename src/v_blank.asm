@@ -1,4 +1,10 @@
- ; ---[ V-BLANK INTERRUPT ]---
+.export V_blank
+
+.segment "CODE" 
+.include "data/constants.inc"
+
+; ---[ V-BLANK INTERRUPT ]---
+V_blank:
     PHA             ; Preserve A
     TXA
     PHA             ; Preserve X
