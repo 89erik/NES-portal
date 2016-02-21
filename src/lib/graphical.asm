@@ -1,3 +1,14 @@
+.export DisablePpuRendering
+.export EnablePpuRendering
+.export DrawScore
+.export DrawLevel
+.export UpdateBackgroundTile
+.export DrawRacket
+.export WaitForBackgroundDraw
+
+.segment "CODE"
+.include "data/constants.inc"
+
 DisablePpuRendering:
     LDA #0
     STA PPU_CTRL_1

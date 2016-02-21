@@ -1,13 +1,28 @@
 .include "data/constants.inc"
 .include "data/sound_constants.inc"
 
-; Exporting global variables. TODO: move to separate file
+; Exporting global variables/names. TODO: move to separate file
 .export v_blank_complete
 .export sub_routine_arg1
 .export sub_routine_arg2
 .export sub_routine_tmp
 .export fp
 
+.export IncrementOffset
+.export brick_to_update_high_addrs
+.export brick_to_update_low_addrs
+.export brick_x
+.export brick_y
+.export bricks_to_update
+.export first_brick_to_update
+.export last_brick_to_update
+.export n_bricks
+.export player_attribute
+.export player_tile
+.export ppu_ctrl_1
+.export racket_width
+.export score
+.export score_tile
 
 .segment "INES"
     .byte "NES",$1A,1,1,1
@@ -24,7 +39,6 @@
     .incbin "data/background.chr"   ; Graphics for background (binary file)
     
 .segment "CODE"
-        .include "src/lib/graphical.asm"
         .include "src/lib/game.asm"
         .include "src/load_level.asm"
         .include "src/init/fill_background.asm"
