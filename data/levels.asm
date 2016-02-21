@@ -1,3 +1,15 @@
+.export levels_n
+.export start_screen_n_data
+.export start_screen_data
+.export level_1_n_data
+.export level_1_data
+.export level_2_n_data
+.export level_2_data
+
+
+.segment "DATA"
+.include "data/constants.inc"
+
 levels_n:     .byte 3
 
 start_screen_n_data: 

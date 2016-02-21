@@ -55,10 +55,6 @@
     No_op:
         RTI
     
-.segment "DATA" 
-    .include "data/palette.asm"
-    .include "data/levels.asm"
-    
 .segment "ZERO_PAGE"
     .include "memory/ram.asm"               ; Variables in RAM
     

@@ -19,6 +19,8 @@ main.asm \
 src/v_blank.asm \
 src/lib/architectural.asm \
 src/lib/graphical.asm \
+data/levels.asm \
+data/palette.asm \
 build/no_remorse.asm \
 build/bounce_sound.asm
 

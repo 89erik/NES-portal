@@ -1,3 +1,7 @@
+.export palette
+
+.segment "DATA"
+
 palette:
     ; Background
     .byte $3F, $20, $3C, $09
