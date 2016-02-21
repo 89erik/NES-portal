@@ -14,6 +14,13 @@ L_SCRIPT = linker_config.cfg
 
 BUILD_DIR = build
 
+SRC = \
+main.asm \
+src/lib/architectural.asm \
+src/lib/graphical.asm \
+build/no_remorse.asm
+
+OBJECTS = $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.asm=.o)))
 
 ####################################################################
 # Rules                                                            #
@@ -37,8 +44,8 @@ $(BUILD_DIR)/%.asm: metasrc/%.json
 	$(CC) -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $<
 
 # Link
-$(PROJECTNAME).nes: main.o build/no_remorse.o src/lib/architectural.o src/lib/graphical.o
-	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) build/main.o build/no_remorse.o build/architectural.o build/graphical.o
+$(PROJECTNAME).nes: $(SRC:.asm=.o)
+	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) $(OBJECTS)
 
 clean:
 	$(RM) main.o 
