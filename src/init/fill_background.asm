@@ -20,18 +20,18 @@ FillBackground:
         @row:
             LDX #0          
             @column:
-                CPX #0
-                BEQ @wall
-                CPX #TILES_X-1
-                BEQ @wall
-                CPY #0
-                BEQ @wall
+                ;CPX #0
+                ;BEQ @wall
+                ;CPX #TILES_X-1
+                ;BEQ @wall
+                ;CPY #0
+                ;BEQ @wall
                     LDA #BLANK_BG_TILE
-                    JMP @store_tile
-                @wall:
-                    LDA #WALL_TILE
-                    JMP @store_tile
-                @store_tile:
+                ;    JMP @store_tile
+                ;@wall:
+                ;    LDA #WALL_TILE
+                ;    JMP @store_tile
+                ;@store_tile:
                     STA PPU_VALUE
                 @column_loop_maintenance:
                     INX
