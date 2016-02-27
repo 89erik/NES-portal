@@ -31,7 +31,6 @@ OBJECTS = $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.asm=.o)))
 ####################################################################
 
 
-all: clean
 all: $(BUILD_DIR)
 all: $(PROJECTNAME).nes
 
