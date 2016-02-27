@@ -74,6 +74,7 @@ NAMETABLE2_H            = $24
 NAMETABLES_L            = $00
 
 STACK_PAGE              = $01
+EOL                     = $FF
 
 ; ---[ GRAPHIC CONSTANTS ]---
 BG_COLOR                = $11

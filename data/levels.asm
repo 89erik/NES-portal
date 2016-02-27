@@ -1,9 +1,6 @@
 .export levels_n
-.export start_screen_n_data
 .export start_screen_data
-.export level_1_n_data
 .export level_1_data
-.export level_2_n_data
 .export level_2_data
 
 
@@ -12,43 +9,41 @@
 
 levels_n:     .byte 3
 
-start_screen_n_data: 
-    .byte 11
 start_screen_data:
-    .byte $0A, $0E, N_CHARACTER
-    .byte $0B, $0E, E_CHARACTER
-    .byte $0C, $0E, S_CHARACTER
+    .byte $0B, $0E, N_CHARACTER
+    .byte $0C, $0E, E_CHARACTER
+    .byte $0D, $0E, S_CHARACTER
     
-    .byte $0E, $0E, B_CHARACTER
-    .byte $0F, $0E, R_CHARACTER
-    .byte $10, $0E, E_CHARACTER
-    .byte $11, $0E, A_CHARACTER
-    .byte $12, $0E, K_CHARACTER
-    .byte $13, $0E, O_CHARACTER
-    .byte $14, $0E, U_CHARACTER
-    .byte $15, $0E, T_CHARACTER
+    .byte $0F, $0E, P_CHARACTER
+    .byte $10, $0E, O_CHARACTER
+    .byte $11, $0E, R_CHARACTER
+    .byte $12, $0E, T_CHARACTER
+    .byte $13, $0E, A_CHARACTER
+    .byte $14, $0E, L_CHARACTER
+    .byte EOL 
 
-level_1_n_data: 
-    .byte 15
 level_1_data:
-    .byte 10, 10, A_CHARACTER
-    .byte 10, 11, A_CHARACTER
-    .byte 10, 12, A_CHARACTER
-    .byte 10, 13, A_CHARACTER
-    .byte 10, 14, A_CHARACTER
-    .byte 11, 10, B_CHARACTER
-    .byte 11, 11, B_CHARACTER
-    .byte 11, 12, B_CHARACTER
-    .byte 11, 13, B_CHARACTER
-    .byte 11, 14, B_CHARACTER
-    .byte 12, 10, C_CHARACTER
-    .byte 12, 11, C_CHARACTER
-    .byte 12, 12, C_CHARACTER
-    .byte 12, 13, C_CHARACTER
-    .byte 12, 14, C_CHARACTER
-    
-level_2_n_data: 
-    .byte 12
+    .byte 0, 0, WALL_TILE
+    .byte 0, 1, WALL_TILE
+    .byte 0, 2, WALL_TILE
+    .byte 0, 3, WALL_TILE
+    .byte 0, 4, WALL_TILE
+    .byte 0, 5, WALL_TILE
+    .byte 0, 28, WALL_TILE
+    .byte 1, 28, WALL_TILE
+    .byte 2, 28, WALL_TILE
+    .byte 3, 28, WALL_TILE
+    .byte 4, 28, WALL_TILE
+    .byte 5, 28, WALL_TILE
+    .byte 6, 28, WALL_TILE
+    .byte 7, 28, WALL_TILE
+    .byte 8, 28, WALL_TILE
+    .byte 9, 28, WALL_TILE
+    .byte 10, 28, WALL_TILE
+    .byte 11, 28, WALL_TILE
+    .byte 12, 28, WALL_TILE
+    .byte EOL 
+
 level_2_data:
     .byte $0C, $0C, E_CHARACTER
     .byte $0D, $0C, R_CHARACTER
@@ -64,3 +59,5 @@ level_2_data:
     .byte $0D, $0E, R_CHARACTER
     .byte $0E, $0E, I_CHARACTER
     .byte $0F, $0E, K_CHARACTER
+    .byte EOL 
+

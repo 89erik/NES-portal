@@ -48,7 +48,6 @@
     
     ; Level table
     level:                      .byte 0
-    level_n_data:               .byte 0
     level_data:                 .word 0
 
     fp:                         .word 0
