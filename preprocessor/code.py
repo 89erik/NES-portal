@@ -4,6 +4,10 @@ MEMORY_SEGMENT = "\"ZERO_PAGE\""
 def legalVariableName(name):
     if " " in name: raise Exception("Illegal variable name: '%s'" % name)
 
+class CodeException(Exception):
+    def __str__(self):
+        return "%s:%d: error: %s" % (self.fileName, self.lineNumber, self.message)
+
 class Code(object):
     def __init__(self, name):
         self.name = name

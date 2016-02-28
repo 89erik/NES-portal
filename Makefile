@@ -44,7 +44,8 @@ $(BUILD_DIR)/%.asm: metasrc/%.json
 
 # Create objects from asm source file
 %.o: %.asm
-	$(CC) -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $<
+	$(PREPROCESS) --src -o $(BUILD_DIR)/$(notdir $<) $<
+	$(CC) -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $(BUILD_DIR)/$(notdir $<)
 
 # Link
 $(PROJECTNAME).nes: $(SRC:.asm=.o)
