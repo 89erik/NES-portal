@@ -18,13 +18,9 @@ MainLoop:
     STA v_blank_complete
 
     ; Loop procedures
-    .include "src/loop/racket_placement.asm"        ; Places the rackets
-    .include "src/loop/ball_placement.asm"          ; Places the ball
-    .include "src/loop/move_token.asm"
+    .include "src/loop/player_placement.asm"          ; Places the ball
     JSR PlayNoRemorse
     JMP MainLoop
 
     ; Subroutines
-    .include "src/loop/racket_miss.asm"            ; Subroutine used by "ball_placement.asm"
-    .include "src/loop/check_hit_racket.asm"       ; Subroutine used by "ball_placement.asm"
     .include "src/loop/check_hit_brick.asm"

@@ -1,4 +1,4 @@
-ROOT_DIR = "../"
+ROOT_DIR = ""
 MEMORY_SEGMENT = "\"ZERO_PAGE\""
 
 def legalVariableName(name):

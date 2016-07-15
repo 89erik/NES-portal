@@ -15,13 +15,11 @@
     ppu_ctrl_1:                 .byte 0
     
     ; Player state
-    racket_pos:                 .byte 0
-    racket_width:               .byte 0
     score:                      .byte 0
-    holding_ball:               .byte 0
     kill_count:	                .byte 0
     
     ; The ball
+    player_pos:                 .byte 0
     x_velocity:                 .byte 0
     y_velocity:                 .byte 0
     ball_speed:                 .byte 0

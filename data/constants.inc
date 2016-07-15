@@ -1,3 +1,4 @@
+
 ; ---[ SYSTEM ADRESSES ]---
 PPU_CTRL_1              = $2000
 PPU_CTRL_2              = $2001
@@ -32,6 +33,10 @@ NAME_TABLE_2            = $24
 NAME_TABLE_WIDTH        = $20
 
 ; ---[ GAME CONSTANTS ]---
+MAX_VELOCITY            = 5
+MAX_FALLING_VELOCITY    = 2
+
+
 MAX_Y_VECTOR            = $0A
 MIN_Y_VECTOR            = $05
 

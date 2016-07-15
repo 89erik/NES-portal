@@ -15,16 +15,45 @@ L_SCRIPT = linker_config.cfg
 BUILD_DIR = build
 
 SRC = \
-main.asm \
-src/v_blank.asm \
-src/lib/architectural.asm \
-src/lib/graphical.asm \
-data/levels.asm \
-data/palette.asm \
-build/no_remorse.asm \
-build/bounce_sound.asm
+	main.asm \
+	src/v_blank.asm \
+	src/lib/architectural.asm \
+	src/lib/graphical.asm \
+	data/levels.asm \
+	data/palette.asm
 
-OBJECTS = $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.asm=.o)))
+METASRC = \
+	metasrc/no_remorse.json \
+	metasrc/bounce_sound.json
+
+CHILD_DEPS = \
+	data/constans.inc \
+	data/sound_constans.inc \
+	memory/ram.asm \
+	memory/oam.asm \
+	src/lib/game.asm \
+	src/load_level.asm \
+	src/init/fill_background.asm \
+	src/start_screen.asm \
+	src/next_level.asm \
+	src/sound/sounds.asm \
+	src/init/init.asm \
+	src/loop/loop.asm \
+	src/loop/player_placement.asm \
+	src/loop/check_hit_brick.asm 
+
+
+OBJECTS = \
+$(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.asm=.o))) \
+$(addprefix $(BUILD_DIR)/, $(notdir $(METASRC:.json=.o)))
+
+
+SRC_PATHS = $(sort $(dir $(SRC)))
+METASRC_PATHS = $(sort $(dir $(METASRC)))
+
+
+vpath %.asm $(SRC_PATHS)
+vpath %.json $(METASRC_PATHS)
 
 ####################################################################
 # Rules                                                            #
@@ -33,25 +62,28 @@ OBJECTS = $(addprefix $(BUILD_DIR)/, $(notdir $(SRC:.asm=.o)))
 
 all: $(BUILD_DIR)
 all: $(PROJECTNAME).nes
+all: upload
 
 $(BUILD_DIR):
 	$(shell mkdir $(BUILD_DIR))
 
 
 # Create asm source files from meta sources
-$(BUILD_DIR)/%.asm: metasrc/%.json
+%.asm: %.json
 	$(PREPROCESS) -o $@ $<
 
 # Create objects from asm source file
-%.o: %.asm
+build/%.o: %.asm 
 	$(PREPROCESS) --src -o $(BUILD_DIR)/$(notdir $<) $<
 	$(CC) -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $(BUILD_DIR)/$(notdir $<)
 
 # Link
-$(PROJECTNAME).nes: $(SRC:.asm=.o)
+$(PROJECTNAME).nes: $(OBJECTS)
 	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) $(OBJECTS)
 
 clean:
-	$(RM) main.o 
 	$(RM) $(BUILD_DIR)
+
+upload:
+	scp $(PROJECTNAME).nes erik@DESKTOP-3GLO7MM:
 

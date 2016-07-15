@@ -42,6 +42,14 @@ level_1_data:
     .byte 10, 28, WALL_TILE
     .byte 11, 28, WALL_TILE
     .byte 12, 28, WALL_TILE
+    .byte 14, 26, WALL_TILE
+    .byte 15, 26, WALL_TILE
+    .byte 16, 26, WALL_TILE
+    .byte 17, 26, WALL_TILE
+    .byte 18, 26, WALL_TILE
+    .byte 19, 26, WALL_TILE
+    .byte 20, 26, WALL_TILE
+    .byte 21, 26, WALL_TILE
     .byte EOL 
 
 level_2_data:

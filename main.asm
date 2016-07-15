@@ -20,7 +20,6 @@
 .export player_attribute
 .export player_tile
 .export ppu_ctrl_1
-.export racket_width
 .export score
 .export score_tile
 

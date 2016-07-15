@@ -50,12 +50,8 @@ JMP @done
     LDA #BALL_DEFAULT_SPEED_Y
     STA ball_speed
     STA y_velocity
-    LDA #RACKET_START_WIDTH
-    STA racket_width
     LDA #(RIGHT_WALL/2) - (RACKET_START_WIDTH/2)
-    STA racket_pos
-    LDA #TRUE
-    STA holding_ball
+    STA player_pos
     LDA #INITIAL_SCORE
     STA score
     LDA #0
@@ -108,13 +104,9 @@ JMP @done
     JSR DrawScore
 
 
-; -[SHOW BALL]-
+; -[SHOW PLAYER]-
     LDA #BALL_TILE
-    STA ball_tile
+    STA player_tile
     LDA #%00000001; (Palette 1)
-    STA ball_attribute
+    STA player_attribute
 
-; -[SHOW RACKET]-
-    LDA #RACKET_START_WIDTH
-    STA racket_width
-    JSR DrawRacket

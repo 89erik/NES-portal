@@ -2,19 +2,10 @@ NextLevel:
 	; Complete any queued drawings
 	JSR WaitForBackgroundDraw
 	
-	; Hold ball
-	LDA #TRUE
-    STA holding_ball
-	
-	; Hide ball (while scrolling)
+	; Hide player (while scrolling)
 	LDA #$FF
-	STA ball_x
-	STA ball_y
-
-	; Reset racket width to default
-	LDA #RACKET_START_WIDTH
-    STA racket_width
-    JSR DrawRacket
+	STA player_x
+	STA player_y
 	
 	; Load next level into next nametable
     LDX level
@@ -52,4 +43,8 @@ NextLevel:
 		LDA ppu_ctrl_1
         EOR #%00000001
         STA ppu_ctrl_1
+    @show_player:
+        LDA #10
+        STA player_x
+        STA player_y
 	RTS

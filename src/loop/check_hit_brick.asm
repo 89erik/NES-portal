@@ -15,8 +15,8 @@ CheckHitBrick:
             JSR @InBoundsVertical
             BNE @no_hit
             @hit:
-				JSR KillBrick
-				BEQ @end_check_hit_bricks
+				;JSR KillBrick
+				;BEQ @end_check_hit_bricks
                 @bounce_direction:
                     JSR @XDiff
                     JSR AbsoluteValue
@@ -28,24 +28,24 @@ CheckHitBrick:
                     BEQ @bounce_both
                     @vertical_bounce:
 						LDA #0
-                        SEC
-                        SBC x_velocity
+                        ;SEC
+                        ;SBC x_velocity
                         STA x_velocity
                         JMP @end_bounce_direction
                     @horizontal_bounce:
-                        LDA #0
-                        SEC
-                        SBC y_velocity
+                        LDA #255
+                        ;SEC
+                        ;SBC y_velocity
                         STA y_velocity
                         JMP @end_bounce_direction
                     @bounce_both:
                         LDA #0
-                        SEC
-                        SBC y_velocity
+                        ;SEC
+                        ;SBC y_velocity
                         STA y_velocity
-                        LDA #0
-                        SEC
-                        SBC x_velocity
+                        ;LDA #0
+                        ;SEC
+                        ;SBC x_velocity
                         STA x_velocity
                 @end_bounce_direction:
                 
@@ -79,13 +79,13 @@ CheckHitBrick:
         @in_bounds_left:
             CLC
             ADC #SPRITE_SIZE-1
-            CMP ball_x
+            CMP player_x
             BCC @off_right
         @in_bounds_right:
             SEC
             SBC #SPRITE_SIZE*2
             BCC @off_left
-            CMP ball_x
+            CMP player_x
             BCS @off_left
         PLA
         TAX     ; Retrieve X
@@ -109,13 +109,13 @@ CheckHitBrick:
         @in_bounds_top:
             CLC
             ADC #SPRITE_SIZE-1
-            CMP ball_y
+            CMP player_y
             BCC @ball_below
         @in_bounds_below:
             SEC
             SBC #SPRITE_SIZE*2
             BCC @ball_above
-            CMP ball_y
+            CMP player_y
             BCS @ball_above
         PLA
         TAX     ; Retrieve X
@@ -138,7 +138,7 @@ CheckHitBrick:
             JSR Multiply
         @calculate_x_diff:
             SEC
-            SBC ball_x
+            SBC player_x
             TAY
             PLA
             TAX     ; Retrieve X
@@ -154,7 +154,7 @@ CheckHitBrick:
             JSR Multiply
         @calculate_y_diff:
             SEC
-            SBC ball_y
+            SBC player_y
             TAY
             PLA
             TAX     ; Retrieve X
