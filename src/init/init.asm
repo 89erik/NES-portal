@@ -61,6 +61,7 @@ JMP @done
     STA scroll
 	STA kill_count
     STA music_index
+    STA gravity_counter
     JSR NoRemorseInitVariables
     
 ; -[INIT GAME-INDEPENDENT OAM DATA]-

@@ -17,9 +17,11 @@ MainLoop:
     LDA #FALSE
     STA v_blank_complete
 
+    .include "src/loop/increment_counters.asm"
+
     ; Loop procedures
-    .include "src/loop/player_placement.asm"          ; Places the ball
-    JSR PlayNoRemorse
+    .include "src/loop/player_placement.asm"          ; Places the player
+    ;JSR PlayNoRemorse
     JMP MainLoop
 
     ; Subroutines

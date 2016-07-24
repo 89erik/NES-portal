@@ -18,11 +18,12 @@
     score:                      .byte 0
     kill_count:	                .byte 0
     
-    ; The ball
+    ; The player
     player_pos:                 .byte 0
     x_velocity:                 .byte 0
     y_velocity:                 .byte 0
     ball_speed:                 .byte 0
+    falling:                    .byte 0
 
     ; Temporary usage
     tmp:                        .byte 0
@@ -49,6 +50,9 @@
     level_data:                 .word 0
 
     fp:                         .word 0
+
+    ; Frequency dividers
+    gravity_counter:            .byte 0
 
     ; Music
     music_index:                .word 0

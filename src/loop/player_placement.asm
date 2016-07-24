@@ -7,22 +7,47 @@ PlayerPlacement:
             STA x_velocity
         :
     @gravity:
-        LDX y_velocity
-        INX
-        TXA
-        ;JSR AbsoluteValue
-        STA sub_routine_arg1
-        LDA #MAX_FALLING_VELOCITY
-        STA sub_routine_arg2
-        JSR SignedComparison
-        BCS @end_gravity
+        LDA falling
+        BEQ :+
+            LDA #0
+            STA y_velocity
+            JMP @end_gravity
+        :
+        LDA gravity_counter
+        BNE @end_gravity
         @fall:
-            LDX y_velocity
-            INX
-            STX y_velocity
+            LDA y_velocity
+            BEQ @zero
+            CMP #$FF
+            BEQ @minus_one
+            JSR SignedIsNegative
+            BEQ @negative
+            @positive:
+                LDA y_velocity
+                ASL
+                JMP @end_case
+            @zero:
+                LDA #1
+                JMP @end_case
+            @minus_one:
+                LDA #0
+                JMP @end_case
+            @negative:
+                LDA y_velocity
+                JSR ASR
+            @end_case:
+            STA y_velocity
+        @enforce_max_falling_velocity:
+            STA sub_routine_arg1
+            LDA #MAX_FALLING_VELOCITY
+            STA sub_routine_arg2
+            JSR SignedComparison
+            BCC :+
+                LDA #MAX_FALLING_VELOCITY
+                STA y_velocity
+            :    
     @end_gravity:
         
-
     @move_player:
         LDX #0
         LDY #0
@@ -30,7 +55,11 @@ PlayerPlacement:
             JSR @ApproachX
             JSR @ApproachY
             JSR CheckHitBrick
-            BEQ @end_approach_routines
+            BNE @no_hit
+                LDA #FALSE
+                STA falling
+                JMP @end_approach_routines
+            @no_hit:
             CPY y_velocity
             BNE @move_more
             CPX x_velocity
@@ -108,7 +137,6 @@ PlayerPlacement:
             JSR PlayBounceSound
             JMP @end_of_task ; JMP to @check_y_edge?
 
-        
         ; -[HIT ROOF OR FLOOR?]-
     @check_y_edge:
         LDA y_velocity
@@ -179,10 +207,12 @@ PlayerInput:
 
     AND #1
     BEQ @ignore_A_button ; not pushed
+        LDA falling
+        BEQ @ignore_A_button
+        LDA #TRUE
+        STA falling
         JSR PlayBounceSound
-        LDA #0
-        SEC
-        SBC #3
+        LDA #%11100000
         STA y_velocity
 
     @ignore_A_button:
