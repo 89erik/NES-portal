@@ -60,6 +60,7 @@ vpath %.json $(METASRC_PATHS)
 ####################################################################
 
 
+all: clean
 all: $(BUILD_DIR)
 all: $(PROJECTNAME).nes
 all: upload

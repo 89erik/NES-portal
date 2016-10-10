@@ -45,8 +45,7 @@ AbsoluteValue:
 ; CMP(sub_routine_arg1, sub_routine_arg2)
 SignedComparison:
     LDA sub_routine_arg2
-    JSR SignedIsNegative
-    BNE @second_positive
+    BPL @second_positive
     @second_negative:
         LDA sub_routine_arg1
         JSR SignedIsNegative
@@ -61,8 +60,7 @@ SignedComparison:
             RTS
     @second_positive:
         LDA sub_routine_arg1
-        JSR SignedIsNegative
-        BNE @both_positive
+        BPL @both_positive
         @second_positive_first_negative:
             CLC ; <
             RTS
