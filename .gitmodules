@@ -1,0 +1,3 @@
+[submodule "mos6502"]
+	path = mos6502
+	url = git@github.com:89erik/mos6502.git
