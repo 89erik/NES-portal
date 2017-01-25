@@ -42,6 +42,7 @@
     .incbin "data/background.chr"   ; Graphics for background (binary file)
     
 .segment "CODE"
+        .include "tests/test_hooks.asm"
         .include "src/lib/game.asm"
         .include "src/load_level.asm"
         .include "src/init/fill_background.asm"

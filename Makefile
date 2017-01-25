@@ -13,6 +13,7 @@ RM       = rm -rf
 L_SCRIPT = linker_config.cfg
 
 BUILD_DIR = build
+DBG_OUTPUT = symbols.txt
 
 SRC = \
 	main.asm \
@@ -76,11 +77,11 @@ $(BUILD_DIR):
 # Create objects from asm source file
 build/%.o: %.asm 
 	$(PREPROCESS) --src -o $(BUILD_DIR)/$(notdir $<) $<
-	$(CC) -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $(BUILD_DIR)/$(notdir $<)
+	$(CC) --debug-info -U -I $(shell pwd) -o $(BUILD_DIR)/$(notdir $@) $(BUILD_DIR)/$(notdir $<)
 
 # Link
 $(PROJECTNAME).nes: $(OBJECTS)
-	$(LD) -o $(PROJECTNAME).nes -C $(L_SCRIPT) $(OBJECTS)
+	$(LD) --dbgfile $(DBG_OUTPUT) -o $(PROJECTNAME).nes -C $(L_SCRIPT) $(OBJECTS)
 
 clean:
 	$(RM) $(BUILD_DIR)
