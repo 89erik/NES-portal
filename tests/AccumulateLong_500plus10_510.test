@@ -1,0 +1,6 @@
+start TestAccumulateLong
+set X 1
+set Y 244
+set A 10
+assert X 1
+assert Y 254

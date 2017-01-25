@@ -1,0 +1,4 @@
+start TestMultiply
+set A 4
+set X 3
+assert A 12

@@ -1,0 +1,5 @@
+start TestDivide
+set A 12
+set X 3
+assert A 4
+assert X 0
