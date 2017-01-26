@@ -65,6 +65,7 @@ all: clean
 all: $(BUILD_DIR)
 all: $(PROJECTNAME).nes
 all: upload
+all: execute_tests 
 
 $(BUILD_DIR):
 	$(shell mkdir $(BUILD_DIR))
@@ -89,3 +90,5 @@ clean:
 upload:
 	scp $(PROJECTNAME).nes erik@DESKTOP-3GLO7MM:
 
+execute_tests:
+	/bin/bash execute_tests.sh
