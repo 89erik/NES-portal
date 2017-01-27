@@ -195,9 +195,6 @@ PlayerPlacement:
 ; Updates player velocity according to input from player
 
 PlayerInput:
-    LDA #FALSE
-    STA boosting
-
     ; Signal controller for read
     LDA #1
     STA PLAYER1_CTRL
@@ -280,12 +277,6 @@ PlayerInput:
         AND #1
         BEQ @end_of_task
 
-        STA tmp
-        LDA #RIGHT_WALL + SPRITE_SIZE
-        CLC
-        SBC tmp
-        STA tmp
-
         LDA boosting
         BEQ @fast_r
         @slow_r:
@@ -313,9 +304,6 @@ PlayerInput:
             CLC
             ADC #RACKET_SPEED
         @end_speed_check_r:
-        CMP tmp ;#RIGHT_WALL - RACKET_WIDTH + SPRITE_SIZE
-        BCC @right_move_in_bounds
-        LDA tmp ;#RIGHT_WALL - RACKET_WIDTH + SPRITE_SIZE
     @right_move_in_bounds:
         STA x_velocity
     @turn_player_right:

@@ -15,8 +15,6 @@ CheckHitBrick:
             JSR @InBoundsVertical
             BNE @no_hit
             @hit:
-				;JSR KillBrick
-				;BEQ @end_check_hit_bricks
                 @bounce_direction:
                     JSR @XDiff
                     JSR AbsoluteValue
@@ -161,48 +159,3 @@ CheckHitBrick:
             TYA
             RTS
 			
-; Kills brick and goes to next level if this was last brick.
-; If last brick:
-; 	A <- TRUE
-; else
-;	A <- FALSE
-KillBrick:
-    JSR PlayKillBrickSound
-
-	; Kill the brick
-	TXA
-	PHA ; Preserve X
-	LDA #FALSE
-	STA brick_present, X
-	TXA
-	LDX #FALSE
-	JSR UpdateBackgroundTile
-	PLA
-	TAX ; Retrieve X
-	
-	; Check if more bricks left
-	LDY #0
-	@check_bricks:
-		LDA brick_present, Y
-		BEQ @more_bricks_exist
-		@continue_check_bricks:
-			INY
-			CPY n_bricks
-			BCC @check_bricks
-		@no_more_bricks:
-			JSR NextLevel
-			LDA #TRUE
-			RTS	
-		@more_bricks_exist:
-			@dispense_token:
-				LDY kill_count
-				INY
-				STY kill_count
-				CPY #2
-				BCC @end_dispense_token
-					LDY #0
-					STY kill_count
-					JSR DispenseToken
-				@end_dispense_token:
-			LDA #FALSE
-			RTS
