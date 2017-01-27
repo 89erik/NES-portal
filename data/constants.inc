@@ -113,7 +113,8 @@ Z_CHARACTER             = $23
 
 ; ---[ SPRITE TILES ]---
 BLANK_SPRITE_TILE       = 0
-BALL_TILE               = 1
+PLAYER_TILE_RIGHT       = 9
+PLAYER_TILE_LEFT        = 10
 RACKET_LEFT_TILE        = 2
 RACKET_CENTER_TILE      = 3
 RACKET_RIGHT_TILE       = 4

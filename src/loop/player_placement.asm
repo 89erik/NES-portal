@@ -266,6 +266,9 @@ PlayerInput:
         LDA #LEFT_WALL
     @left_move_in_bounds:
         STA x_velocity
+    @turn_player_left:
+        LDA #PLAYER_TILE_LEFT
+        STA player_tile
 
         JMP @end_of_task
 
@@ -308,11 +311,13 @@ PlayerInput:
             CLC
             ADC #RACKET_SPEED
         @end_speed_check_r:
-
         CMP tmp ;#RIGHT_WALL - RACKET_WIDTH + SPRITE_SIZE
         BCC @right_move_in_bounds
         LDA tmp ;#RIGHT_WALL - RACKET_WIDTH + SPRITE_SIZE
     @right_move_in_bounds:
         STA x_velocity
+    @turn_player_right:
+        LDA #PLAYER_TILE_RIGHT
+        STA player_tile
 
     @end_of_task:

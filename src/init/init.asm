@@ -106,7 +106,7 @@ JMP @done
 
 
 ; -[SHOW PLAYER]-
-    LDA #BALL_TILE
+    LDA #PLAYER_TILE_LEFT
     STA player_tile
     LDA #%00000001; (Palette 1)
     STA player_attribute
