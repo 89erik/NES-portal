@@ -33,9 +33,9 @@ NAME_TABLE_2            = $24
 NAME_TABLE_WIDTH        = $20
 
 ; ---[ GAME CONSTANTS ]---
-MAX_VELOCITY            = 6
-MAX_FALLING_VELOCITY    = 6
-JUMPING_VELOCITY        = 6
+MAX_VELOCITY            = 5
+MAX_FALLING_VELOCITY    = 5
+JUMPING_VELOCITY        = 5
 
 MAX_Y_VECTOR            = $0A
 MIN_Y_VECTOR            = $05

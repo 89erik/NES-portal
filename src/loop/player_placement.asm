@@ -195,6 +195,9 @@ PlayerPlacement:
 ; Updates player velocity according to input from player
 
 PlayerInput:
+    LDA #FALSE
+    STA boosting
+
     ; Signal controller for read
     LDA #1
     STA PLAYER1_CTRL
@@ -212,7 +215,7 @@ PlayerInput:
         LDA #TRUE
         STA falling
         JSR PlayBounceSound
-        LDA #%11100000
+        LDA #%11110000
         STA y_velocity
 
     @ignore_A_button:
@@ -222,8 +225,7 @@ PlayerInput:
         BEQ @end_check_b
             LDX #TRUE
         @end_check_b:
-        TXA
-        PHA
+        STX boosting
         LDA PLAYER1_CTRL ; Select
         LDA PLAYER1_CTRL ; Start
         LDA PLAYER1_CTRL ; Up
@@ -233,7 +235,7 @@ PlayerInput:
         LDA PLAYER1_CTRL ; Left
         AND #1
         BEQ @right_button
-        PLA
+        LDA boosting
         BEQ @fast_l
         @slow_l:
             LDA x_velocity
@@ -284,7 +286,7 @@ PlayerInput:
         SBC tmp
         STA tmp
 
-        PLA
+        LDA boosting
         BEQ @fast_r
         @slow_r:
             LDA x_velocity
