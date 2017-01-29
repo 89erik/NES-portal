@@ -1,0 +1,5 @@
+set mem sub_routine_arg1 10
+set mem sub_routine_arg2 3
+start TestMultiplyLong
+assert X 30
+assert Y 0
