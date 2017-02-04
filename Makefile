@@ -20,6 +20,7 @@ SRC = \
 	src/v_blank.asm \
 	src/lib/architectural.asm \
 	src/lib/graphical.asm \
+	src/lib/logical.asm \
 	data/levels.asm \
 	data/palette.asm
 
