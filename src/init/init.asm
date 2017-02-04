@@ -47,11 +47,7 @@ JMP @done
     STA bg_color
     LDA #0
     STA x_velocity
-    LDA #BALL_DEFAULT_SPEED_Y
-    STA ball_speed
     STA y_velocity
-    LDA #(RIGHT_WALL/2) - (RACKET_START_WIDTH/2)
-    STA player_pos
     LDA #INITIAL_SCORE
     STA score
     LDA #0
@@ -59,7 +55,6 @@ JMP @done
     STA last_brick_to_update
     LDA #0
     STA scroll
-	STA kill_count
     STA music_index
     STA gravity_counter
     JSR NoRemorseInitVariables

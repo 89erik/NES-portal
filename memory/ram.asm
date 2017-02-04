@@ -16,13 +16,10 @@
     
     ; Player state
     score:                      .byte 0
-    kill_count:	                .byte 0
     
     ; The player
-    player_pos:                 .byte 0
     x_velocity:                 .byte 0
     y_velocity:                 .byte 0
-    ball_speed:                 .byte 0
     falling:                    .byte 0
     boosting:                   .byte 0
 

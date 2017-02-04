@@ -45,19 +45,6 @@ LEFT_WALL               = 0   + SPRITE_SIZE
 FLOOR                   = 232
 ROOF                    = 0   + SPRITE_SIZE
 
-RACKET_Y                = 220
-RACKET_X                = 50
-
-RACKET_START_WIDTH      = 4
-RACKET_MAX_WIDTH        = 7
-RACKET_MIN_WIDTH        = 2
-
-RACKET_MISS_TOLERANCE_X = 4
-RACKET_MISS_TOLERANCE_Y = 4
-
-RACKET_SPEED            = 4
-BALL_DEFAULT_SPEED_Y    = 2
-TOKEN_SPEED             = 3
 
 INITIAL_SCORE           = 10
 
@@ -115,9 +102,6 @@ Z_CHARACTER             = $23
 BLANK_SPRITE_TILE       = 0
 PLAYER_TILE_RIGHT       = 9
 PLAYER_TILE_LEFT        = 10
-RACKET_LEFT_TILE        = 2
-RACKET_CENTER_TILE      = 3
-RACKET_RIGHT_TILE       = 4
 
 INCREASE_RACKET_TOKEN   = $05
 DECREASE_RACKET_TOKEN   = $06
