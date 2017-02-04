@@ -1,0 +1,11 @@
+set mem player_x 100
+set mem player_y 100
+set mem x_velocity 0
+set mem y_velocity 0
+set mem n_bricks 2
+set mem brick_x[0] 100
+set mem brick_y[0] 108
+set mem brick_x[1] 108
+set mem brick_y[1] 108
+start TestMovePlayer
+assert mem y_velocity 0

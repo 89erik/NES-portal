@@ -43,12 +43,14 @@
     
 .segment "CODE"
         .include "tests/test_hooks.asm"
+        .include "tests/advanced_test_hooks.asm"
         .include "src/lib/game.asm"
         .include "src/load_level.asm"
         .include "src/init/fill_background.asm"
         .include "src/start_screen.asm"
         .include "src/next_level.asm"
         .include "src/sound/sounds.asm"
+        .include "src/loop/player_placement.asm"
     Start:
         .include "src/init/init.asm"        ; Initialization procedure
         .include "src/loop/loop.asm"        ; Physics to be performed per framerate

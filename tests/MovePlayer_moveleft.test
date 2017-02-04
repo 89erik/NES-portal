@@ -1,0 +1,5 @@
+set mem player_x 100
+set mem player_y 100
+set mem x_velocity -1
+start TestMovePlayer
+assert mem player_x 99

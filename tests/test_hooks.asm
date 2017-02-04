@@ -6,3 +6,6 @@ TestSignedIncrease:                 JSR SignedIncrease
 TestSignedDecrease:                 JSR SignedDecrease
 TestMultiplyLong:                   JSR MultiplyLong
 TestAddLong:                        JSR AddLong
+TestMovePlayer:                     JSR MovePlayer
+TestTilesOverlap:                   JSR TilesOverlap
+TestPlayerCollision:                JSR PlayerCollision
