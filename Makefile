@@ -92,4 +92,4 @@ upload:
 	scp $(PROJECTNAME).nes erik@DESKTOP-3GLO7MM:
 
 execute_tests:
-	/bin/bash execute_tests.sh
+	/bin/bash test_executor/execute_tests.sh tests
