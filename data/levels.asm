@@ -42,6 +42,7 @@ level_1_data:
     .byte 10, 28, WALL_TILE
     .byte 11, 28, WALL_TILE
     .byte 12, 28, WALL_TILE
+    .byte 13, 27, WALL_TILE
     .byte 14, 26, WALL_TILE
     .byte 15, 26, WALL_TILE
     .byte 16, 26, WALL_TILE

@@ -15,12 +15,10 @@ PlayerInput:
     LDA PLAYER1_CTRL ; A
     AND #1
     BEQ :+ ; not pushed
-        LDA falling
+        JSR PlayerFalling
         BEQ :+
-        LDA #TRUE
-        STA falling
         JSR PlayBounceSound
-        LDA #%11110000
+        LDA #-20
         STA y_velocity
     :
 
@@ -38,17 +36,28 @@ PlayerInput:
         LDA PLAYER1_CTRL ; Up
         LDA PLAYER1_CTRL ; Down
 
+    @determine_max_vertical_speed:
+        LDA #MAX_VELOCITY
+        STA tmp
+        JSR PlayerFalling
+        BNE :+
+            LDA #MAX_VELOCITY
+            STA tmp
+        :
+
     ; -[CHECK LEFT BUTTON]-
         LDA PLAYER1_CTRL ; Left
         AND #1
         BEQ @right_button ; not pushed, moving on
             LDX x_velocity
             DEX
+            DEX
             TAX
             JSR AbsoluteValue
-            CMP #MAX_VELOCITY
+            CMP tmp ; max velocity depending on whether player is falling
             BCS :+
                 LDX x_velocity
+                DEX
                 DEX
                 STX x_velocity
             :
@@ -60,11 +69,13 @@ PlayerInput:
         BEQ @end_of_task
             LDX x_velocity
             INX
+            INX
             TAX
             JSR AbsoluteValue
-            CMP #MAX_VELOCITY
+            CMP tmp ; max velocity depending on whether player is falling
             BCS :+
                 LDX x_velocity
+                INX
                 INX
                 STX x_velocity
             :

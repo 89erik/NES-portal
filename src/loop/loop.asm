@@ -13,8 +13,11 @@ MainLoop:
     LDA v_blank_complete
     BNE MainLoop
 
-    LDA #FALSE
-    STA v_blank_complete
+    @reset_loop:
+        LDA #FALSE
+        STA v_blank_complete
+        LDA #DONT_KNOW
+        STA falling
 
     .include "src/loop/increment_counters.asm"
 

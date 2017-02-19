@@ -106,3 +106,7 @@ JMP @done
     LDA #%00000001; (Palette 1)
     STA player_attribute
 
+    LDA #100
+    STA player_x
+    STA player_y
+

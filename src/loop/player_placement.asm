@@ -9,6 +9,11 @@ MovePlayer:
         CLC
         ADC y_velocity
         STA player_y
+
+        LDA x_velocity
+        JSR SignedDecrease
+        STA x_velocity
+
     JSR PlayerCollision
     BNE @no_collisions
     @collision:
@@ -23,40 +28,74 @@ MovePlayer:
         STA player_y
 
         LDA #0
-        STA x_velocity
         STA y_velocity
+        STA x_velocity
         JMP @done; we have stopped all movement, and can return
 
     @no_collisions:
-    @is_player_falling:
-
-        LDY player_y
-        INY
-        STY player_y
-        JSR PlayerCollision
-        LDY player_y
-        DEY
-        STY player_y
-        CMP #FALSE
+        JSR PlayerFalling
         BEQ @falling
         @not_falling:
             LDA #0
-            STA x_velocity
             STA y_velocity
             JMP @done
         @falling:
             LDA y_velocity
-            JSR AbsoluteValue
+            JSR SignedIsNegative
+            BEQ @execute_gravity
+            LDA y_velocity
             CMP #MAX_FALLING_VELOCITY
             BCS @done
-            @fall_faster:
-                LDA y_velocity
-                JSR SignedIncrease ; TODO increase exponentially
-                STA y_velocity
+            @execute_gravity:
+                LDA gravity_counter
+                BNE @done
+                    LDA y_velocity
+                    BNE :+ ; velocity is zero
+                        LDA #1
+                        STA y_velocity
+                        JMP @done
+                    :
+                    JSR SignedIsNegative
+                    BEQ @upwards
+                    @downwards:
+                        LDA y_velocity
+                        ASL
+                        STA y_velocity
+                        JMP @done
+                    @upwards:
+                        LDA y_velocity
+                        JSR ASR
+                        STA y_velocity
 
     @done:
         RTS
-    
+
+PlayerFalling:
+    LDA falling
+    CMP #DONT_KNOW
+    BEQ :+
+        LDA falling
+        RTS
+    :
+
+    LDY player_y
+    INY
+    STY player_y
+    JSR PlayerCollision
+    LDY player_y
+    DEY
+    STY player_y
+    CMP #FALSE
+    BEQ @true
+    @false:
+        LDA #FALSE
+        JMP @endif
+    @true:
+        LDA #TRUE
+    @endif:
+    STA falling
+    RTS
+
 
 ; Has player collided into brick? TRUE : FALSE
 PlayerCollision:

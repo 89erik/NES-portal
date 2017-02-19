@@ -3,7 +3,7 @@ set mem player_y 10
 set mem x_velocity 0
 set mem y_velocity 0
 
-set mem n_bricks 4
+set mem n_bricks 3
 set mem brick_x[0] 0
 set mem brick_y[0] 10
 

@@ -89,7 +89,8 @@ clean:
 	$(RM) $(BUILD_DIR)
 
 upload:
-	scp $(PROJECTNAME).nes erik@DESKTOP-3GLO7MM:
+	#scp $(PROJECTNAME).nes erik@DESKTOP-3GLO7MM:
+	cp $(PROJECTNAME).nes /media/sputnik/tmp
 
 execute_tests:
 	/bin/bash 6502_test_executor/execute_tests.sh tests

@@ -98,7 +98,13 @@ SignedIncrease:
 ; A <- A-1
 ; If A is negative:
 ; A <- A+1
+; If A is zero:
+; A <- 0
 SignedDecrease:
+    CMP #0
+    BNE :+
+        RTS
+    :
     PHA
     JSR SignedIsNegative
     BEQ @increase
@@ -293,4 +299,7 @@ Sleep:
 
 ; Halt indefinitely (V-blank interrupt routine will still run)
 Halt: 
+    LDA #$FF
+    LDX #$AA
+    LDY #$BB
     JMP Halt

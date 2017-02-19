@@ -33,8 +33,8 @@ NAME_TABLE_2            = $24
 NAME_TABLE_WIDTH        = $20
 
 ; ---[ GAME CONSTANTS ]---
-MAX_VELOCITY            = 5
-MAX_FALLING_VELOCITY    = 5
+MAX_VELOCITY            = 2
+MAX_FALLING_VELOCITY    = 4
 JUMPING_VELOCITY        = 5
 
 MAX_Y_VECTOR            = $0A
@@ -57,6 +57,7 @@ LOWEST_SIGNED           = 128
 HIGHEST_SIGNED          = 127
 TRUE                    = 0
 FALSE                   = 1
+DONT_KNOW               = $ff
 SPRITE_SIZE             = 8
 TILES_X                 = 32
 TILES_Y                 = 30

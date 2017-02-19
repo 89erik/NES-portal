@@ -1,5 +1,5 @@
 LDX gravity_counter
-CPX #10
+CPX #20
 BCC :+ 
     ; gravity_counter < 10
     INX
