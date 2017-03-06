@@ -51,6 +51,8 @@
         .include "src/next_level.asm"
         .include "src/sound/sounds.asm"
         .include "src/loop/player_placement.asm"
+        .include "src/loop/increment_counters.asm"
+        .include "src/loop/controller_input.asm"
     Start:
         .include "src/init/init.asm"        ; Initialization procedure
         .include "src/loop/loop.asm"        ; Physics to be performed per framerate

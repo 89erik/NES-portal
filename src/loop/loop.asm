@@ -19,11 +19,10 @@ MainLoop:
         LDA #DONT_KNOW
         STA falling
 
-    .include "src/loop/increment_counters.asm"
-
-    ; Loop procedures
-    .include "src/loop/controller_input.asm"
+    JSR IncrementCounters
+    JSR ControllerInput
     JSR MovePlayer
     ;JSR PlayNoRemorse
+
     JMP MainLoop
 

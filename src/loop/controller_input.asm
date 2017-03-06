@@ -1,7 +1,7 @@
 ; ---[ PLAYER INPUT ]---
 ; Updates player velocity according to input from player
 
-PlayerInput:
+ControllerInput:
     ; Signal controller for read
     LDA #1
     STA PLAYER1_CTRL
@@ -81,3 +81,4 @@ PlayerInput:
             :
 
 @end_of_task:
+    RTS
