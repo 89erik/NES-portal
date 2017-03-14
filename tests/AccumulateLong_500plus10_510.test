@@ -1,4 +1,4 @@
-start TestAccumulateLong
+start AccumulateLong
 set X 1
 set Y 244
 set A 10

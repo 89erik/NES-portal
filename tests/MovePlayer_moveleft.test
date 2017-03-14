@@ -1,5 +1,5 @@
 set mem player_x 100
 set mem player_y 100
 set mem x_velocity -1
-start TestMovePlayer
+start MovePlayer
 assert mem player_x 99

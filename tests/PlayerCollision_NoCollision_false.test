@@ -3,5 +3,5 @@ set mem brick_x 1
 set mem brick_y 1
 set mem player_x 0
 set mem player_y 0
-start TestPlayerCollision
+start PlayerCollision
 assert A 1

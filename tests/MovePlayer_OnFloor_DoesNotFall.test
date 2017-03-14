@@ -7,5 +7,5 @@ set mem brick_x[0] 100
 set mem brick_y[0] 108
 set mem brick_x[1] 108
 set mem brick_y[1] 108
-start TestMovePlayer
+start MovePlayer
 assert mem y_velocity 0

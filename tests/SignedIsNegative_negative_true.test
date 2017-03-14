@@ -1,3 +1,3 @@
-start TestSignedIsNegative
+start SignedIsNegative
 set A -1
 assert A 0

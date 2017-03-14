@@ -2,6 +2,6 @@ set X 0
 set Y 1
 set mem sub_routine_arg1 0
 set mem sub_routine_arg2 1
-start TestAddLong
+start AddLong
 assert X 0
 assert Y 2

@@ -1,4 +1,4 @@
-start TestDivide
+start Divide
 set A 12
 set X 3
 assert A 4

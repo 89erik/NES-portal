@@ -2,5 +2,5 @@ set X 10
 set Y 10
 set mem sub_routine_arg1 18
 set mem sub_routine_arg2 10
-start TestTilesOverlap
+start TilesOverlap
 assert A 1
