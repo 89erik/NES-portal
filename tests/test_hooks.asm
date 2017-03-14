@@ -1,8 +1,4 @@
-TestMovePlayerAdvanced:
-    JSR @test_move_player_advanced
-    NOP ; arriving here marks termination of test
-    
-@test_move_player_advanced:
+MovePlayerRepeatedly:
     LDX #0
     @repeat:
         TXA

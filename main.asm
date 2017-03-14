@@ -43,7 +43,6 @@
     
 .segment "CODE"
         .include "tests/test_hooks.asm"
-        .include "tests/advanced_test_hooks.asm"
         .include "src/lib/game.asm"
         .include "src/load_level.asm"
         .include "src/init/fill_background.asm"

@@ -13,7 +13,7 @@ set mem brick_y[1] 10
 set mem brick_x[2] 2
 set mem brick_y[2] 10
 
-start TestMovePlayerAdvanced
+start MovePlayerRepeatedly
 
 assert mem player_x 8
 assert mem player_y 72
