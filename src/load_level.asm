@@ -6,7 +6,8 @@ SetAndLoadLevel:
     BEQ @l1
     CMP #2
     BEQ @l2
-    JMP @end_case
+    LDA #UNDEFINED_LEVEL
+    JMP Exception
     
     @start_screen:
         LDA #>start_screen_data

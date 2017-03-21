@@ -22,6 +22,9 @@
 .export ppu_ctrl_1
 .export score
 .export score_tile
+.export palette_offset
+.export palette_value
+.export error_code
 
 .export scroll
 .export brick_present

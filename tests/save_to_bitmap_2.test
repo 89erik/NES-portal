@@ -1,0 +1,6 @@
+set X 2
+set A 1
+set mem sub_routine_tmp 0b11110000
+start save_to_bitmap
+assert mem sub_routine_tmp 0b11110100
+assert A 0b11110100

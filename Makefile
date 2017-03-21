@@ -21,6 +21,7 @@ SRC = \
 	src/lib/architectural.asm \
 	src/lib/graphical.asm \
 	src/lib/logical.asm \
+	src/lib/system.asm \
 	data/levels.asm \
 	data/palette.asm
 

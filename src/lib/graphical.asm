@@ -4,6 +4,7 @@
 .export DrawLevel
 .export UpdateBackgroundTile
 .export WaitForBackgroundDraw
+.export ResetColor
 
 .segment "CODE"
 .include "data/constants.inc"
@@ -164,4 +165,11 @@ WaitForBackgroundDraw:
     LDA first_brick_to_update
     CMP last_brick_to_update
     BNE WaitForBackgroundDraw
+    RTS
+
+; Reverts the last updated color to its original value
+ResetColor:
+    LDX palette_offset
+    LDA palette_rom, X
+    STA palette_value
     RTS

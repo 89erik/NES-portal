@@ -9,8 +9,6 @@
 .export AccumulateLong
 .export AddLong
 .export MultiplyLong
-.export Sleep
-.export Halt
 
 
 .segment "CODE"
@@ -283,23 +281,3 @@ MultiplyLong:
     @x:       .byte 2
     @y:       .byte 1
 
-
-; Sleep for amount of frames given by X
-Sleep:
-    @wait:
-        LDA v_blank_complete
-        BNE @wait
-    @reset_variable:
-        LDA #FALSE
-        STA v_blank_complete
-    @loop_maintenance:
-        DEX
-        BNE @wait
-    RTS
-
-; Halt indefinitely (V-blank interrupt routine will still run)
-Halt: 
-    LDA #$FF
-    LDX #$AA
-    LDY #$BB
-    JMP Halt

@@ -1,8 +1,8 @@
-.export palette
+.export palette_rom
 
 .segment "DATA"
 
-palette:
+palette_rom:
     ; Background
     .byte $3F, $20, $3C, $09
     .byte $3F, $15, $3C, $09

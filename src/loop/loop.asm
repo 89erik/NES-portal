@@ -10,12 +10,9 @@
 
 
 MainLoop:
-    LDA v_blank_complete
-    BNE MainLoop
-
+    JSR WaitForVBlank
+    
     @reset_loop:
-        LDA #FALSE
-        STA v_blank_complete
         LDA #DONT_KNOW
         STA falling
 

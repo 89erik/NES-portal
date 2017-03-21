@@ -12,12 +12,15 @@ V_blank:
     PHA             ; Preserve Y
     
     LDA PPU_STATUS  ; Clear adress part latch
-    
-	; -[ REFRESH VRAM ADDRESS]-
-	LDA #0
-	STA PPU_ADDRESS
-	STA PPU_ADDRESS
-	
+
+    ; -[UPDATE PALETTE]-
+    LDA #PALETTE_VRAM_PAGE
+    STA PPU_ADDRESS
+    LDA palette_offset
+    STA PPU_ADDRESS
+    LDA palette_value
+    STA PPU_VALUE
+
     ; -[UPDATE PPU CONTROL REGISTERS]-
     LDA ppu_ctrl_1
     STA PPU_CTRL_1      
@@ -25,7 +28,7 @@ V_blank:
     ; -[DMA OAM UPDATE]-
     LDA #$00
     STA SPR_RAM_ADDRESS
-    LDA #$02
+    LDA #$07                ; OAM page, defined in linker_config.cfg
     STA SPR_RAM_DMA
     
     ; -[UPDATE BACKGROUND]-
@@ -40,7 +43,6 @@ V_blank:
     STA PPU_SCROLL
     LDA #0
     STA PPU_SCROLL
-    
 
     ; -[PREPARE FOR RETURN]-
     LDA #TRUE

@@ -32,6 +32,8 @@ NAME_TABLE_2            = $24
 
 NAME_TABLE_WIDTH        = $20
 
+PALETTE_VRAM_PAGE       = $3F
+
 ; ---[ GAME CONSTANTS ]---
 MAX_VELOCITY            = 2
 MAX_FALLING_VELOCITY    = 4
@@ -118,3 +120,6 @@ SPRITE_NUMBERS_OFFSET   = $10
 WALL_TILE               = $30
 BLANK_BG_TILE           = $FF
 
+; ---[ ERROR CODES ]---
+;VBLANK_TIMEOUT          = $01
+UNDEFINED_LEVEL         = $02

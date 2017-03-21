@@ -5,6 +5,7 @@
 ; in this file represents places in the memory,     ;
 ; and can be referred to by the labels.             ;
 ; ------------------------------------------------- ;
+    error_code:                 .byte 0
 
     ; System state
     bg_color:                   .byte 0
@@ -42,6 +43,10 @@
     brick_to_update_low_addrs:  .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     first_brick_to_update:      .byte 0
     last_brick_to_update:       .byte 0
+
+    ; Palette update
+    palette_value:              .byte 0
+    palette_offset:             .byte 0
     
     ; Level table
     level:                      .byte 0
@@ -49,9 +54,16 @@
 
     fp:                         .word 0
 
+.segment "RAM"
     ; Frequency dividers
     gravity_counter:            .byte 0
 
     ; Music
     music_index:                .word 0
     note_index:                 .word 0
+
+    ; Color
+    color:                      .byte 0,0,0,0
+    color_index:                .byte 0
+    color_length:               .byte 0
+    color_counter:              .byte 0

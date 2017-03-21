@@ -14,19 +14,21 @@
 ; -[TURN OFF RENDERING]-
     JSR DisablePpuRendering
 
-; -[LOAD PALETTE]-
-    LDA #$3F
+; -[LOAD PALETTE INTO VRAM]-
+    LDA #PALETTE_VRAM_PAGE
     STA PPU_ADDRESS  ; PPU address = start of palette
     LDA #$00
     STA PPU_ADDRESS      
     
     LDX #0
     @load_palette:
-        LDA palette, X
+        LDA palette_rom, X
         STA PPU_VALUE
         INX
         CPX #32
         BNE @load_palette
+    LDA #$FF
+    STA palette_offset ; avoids unintentional palette updates
     
 ; -[INIT STACK]-
     LDX #$FF
@@ -34,13 +36,6 @@
     LDA #STACK_PAGE
     LDX #1
     STA fp, X
-
-;--------------------------------------------------------
-; Test area
-JMP @done
-
-@done:
-;--------------------------------------------------------
 
 ; -[INIT STATE VARIABLES]-
     LDA #0
@@ -57,6 +52,7 @@ JMP @done
     STA scroll
     STA music_index
     STA gravity_counter
+    STA error_code
     JSR NoRemorseInitVariables
     
 ; -[INIT GAME-INDEPENDENT OAM DATA]-
