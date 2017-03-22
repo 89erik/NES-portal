@@ -3,8 +3,8 @@ StartScreen:
     STA level
     JSR SetAndLoadLevel
 
-    LDA #FALSE
-    JSR @set_bricks_present
+    LDA #BLANK_BG_TILE
+    JSR @set_brick_tiles
     
     LDX #1
     JSR Sleep
@@ -13,12 +13,11 @@ StartScreen:
     @update_loop_outer:
         PHA
         
-        LDA #TRUE
-        JSR @set_bricks_present
+        JSR LoadLevel
         JSR @update_screen
 
-        LDA #FALSE
-        JSR @set_bricks_present
+        LDA #BLANK_BG_TILE
+        JSR @set_brick_tiles
         JSR @update_screen
         
         @loop_maintenance:
@@ -28,16 +27,15 @@ StartScreen:
             TXA
             BNE @update_loop_outer
 
-    LDA #TRUE
-    JSR @set_bricks_present
+    JSR LoadLevel
     JSR @update_screen
     
     JSR @wait_for_controller
 
     LDX #1
     JSR Sleep
-    LDA #FALSE
-    JSR @set_bricks_present
+    LDA #BLANK_BG_TILE
+    JSR @set_brick_tiles
     JSR @update_screen
     RTS
 
@@ -57,11 +55,11 @@ StartScreen:
         BCC @update_loop_inner
     RTS
 
-; All brick_present <- A
-@set_bricks_present:
+; All brick_tiles <- A
+@set_brick_tiles:
     LDX #0
     @loop:
-        STA brick_present, X
+        STA brick_tile, X
         INX
         CPX n_bricks
         BCC @loop

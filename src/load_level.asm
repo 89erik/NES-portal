@@ -51,8 +51,6 @@ LoadLevel:
         LDA (<level_data), Y
         STA brick_tile, X
         INY
-        LDA #TRUE
-        STA brick_present, X
         INX
         JMP @next_tile
     @end_while:

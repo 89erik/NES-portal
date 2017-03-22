@@ -47,11 +47,8 @@ LEFT_WALL               = 0   + SPRITE_SIZE
 FLOOR                   = 232
 ROOF                    = 0   + SPRITE_SIZE
 
-
 INITIAL_SCORE           = 10
-
 SCROLL_SPEED            = 8
-
 TOKEN_FREQUENCY			= 2
 
 ; ---[ ARCHITECTURAL CONSTANTS ]---

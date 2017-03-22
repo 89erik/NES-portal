@@ -66,14 +66,7 @@ V_blank:
         @store_tile_to_ppu:
             LDA bricks_to_update, X
             TAX                     ; X <- bricks_to_update[i]
-            LDA brick_present, X
-            BEQ @brick_present
-            @brick_not_present:
-                LDA #BLANK_BG_TILE
-                JMP @end_brick_presence_check
-            @brick_present:
-                LDA brick_tile, X       ; A <- brick_tile[X]
-            @end_brick_presence_check:
+            LDA brick_tile, X
             STA PPU_VALUE
         @increase_index:
             LDX first_brick_to_update

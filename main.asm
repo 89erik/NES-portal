@@ -27,7 +27,6 @@
 .export error_code
 
 .export scroll
-.export brick_present
 .export brick_tile
 
 .segment "INES"
