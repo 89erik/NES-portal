@@ -1,7 +1,7 @@
-set mem n_bricks 1
-set mem brick_x 1
-set mem brick_y 1
-set mem player_x 0
-set mem player_y 0
+set n_bricks 1
+set brick_x 1
+set brick_y 1
+set player_x 0
+set player_y 0
 start PlayerCollision
 assert A 1

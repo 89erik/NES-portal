@@ -1,7 +1,7 @@
-set mem player_x 100
-set mem player_y 100
-set mem x_velocity 0
-set mem y_velocity 0
-set mem n_bricks 0
+set player_x 100
+set player_y 100
+set x_velocity 0
+set y_velocity 0
+set n_bricks 0
 start MovePlayer
-assert mem y_velocity 1
+assert y_velocity 1

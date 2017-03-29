@@ -1,5 +1,5 @@
-set mem player_x 100
-set mem player_y 100
-set mem x_velocity -1
+set player_x 100
+set player_y 100
+set x_velocity -1
 start MovePlayer
-assert mem player_x 99
+assert player_x 99
