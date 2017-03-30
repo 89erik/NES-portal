@@ -94,4 +94,4 @@ upload:
 	cp $(PROJECTNAME).nes /media/sputnik/tmp
 
 execute_tests:
-	/bin/bash 6502_test_executor/execute_tests.sh tests
+	/bin/bash 6502_test_executor/execute_tests.sh $(PROJECTNAME).nes $(DBG_OUTPUT) tests
