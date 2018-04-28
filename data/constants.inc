@@ -117,6 +117,11 @@ SPRITE_NUMBERS_OFFSET   = $10
 WALL_TILE               = $30
 BLANK_BG_TILE           = $FF
 
+PORTAL_12               = $31
+PORTAL_3                = $32
+PORTAL_6                = $33
+PORTAL_9                = $34
+
 ; ---[ ERROR CODES ]---
-;VBLANK_TIMEOUT          = $01
+BACKGROUND_TILE_QUEUE_OVERFLOW = $01
 UNDEFINED_LEVEL         = $02

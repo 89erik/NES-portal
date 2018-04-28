@@ -1,0 +1,7 @@
+set level 1
+start SetAndLoadLevel
+assert brick_tile[0] WALL_TILE
+assert brick_tile[27] PORTAL_9
+assert brick_tile[28] PORTAL_9
+assert brick_tile[32] PORTAL_3
+assert brick_tile[33] WALL_TILE

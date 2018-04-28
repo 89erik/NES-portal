@@ -4,7 +4,7 @@
 
 palette_rom:
     ; Background
-    .byte $3F, $20, $3C, $09
+    .byte $3F, $20, $16, $09
     .byte $3F, $15, $3C, $09
     .byte $3F, $15, $3C, $09
     .byte $3F, $15, $3C, $09

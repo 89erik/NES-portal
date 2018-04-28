@@ -98,6 +98,12 @@ UpdateBackgroundTile:
     PHA     ; Stack = X
     TYA
     PHA     ; Stack = A, X
+    LDA last_brick_to_update
+    CMP #64
+    BCC :+
+        LDA #BACKGROUND_TILE_QUEUE_OVERFLOW
+        JMP Exception
+    :
     LDA first_brick_to_update
     CMP last_brick_to_update
     BNE @end_equality_check

@@ -35,6 +35,8 @@ SetAndLoadLevel:
         JMP @end_case
     @end_case:
     
+
+; jeg har sett i minnet at denne laster levelen riktig
 LoadLevel:
     LDX #0
     LDY #0
@@ -57,3 +59,4 @@ LoadLevel:
         
     STX n_bricks
     RTS
+

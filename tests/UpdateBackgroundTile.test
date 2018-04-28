@@ -1,0 +1,12 @@
+set A 39
+set X 1
+set brick_x[39] 4
+set brick_y[39] 5
+set first_brick_to_update 0
+set last_brick_to_update 39
+
+start UpdateBackgroundTile
+
+assert first_brick_to_update 0
+assert last_brick_to_update 40
+assert bricks_to_update[39] 39

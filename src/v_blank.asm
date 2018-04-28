@@ -34,9 +34,9 @@ V_blank:
     ; -[UPDATE BACKGROUND]-
     LDA first_brick_to_update
     CMP last_brick_to_update
-    BEQ @end_update_background
+    BEQ :+
         JSR @update_background
-    @end_update_background:
+    :
             
     ; -[SET SCROLL]-
     LDA scroll
@@ -70,6 +70,6 @@ V_blank:
             STA PPU_VALUE
         @increase_index:
             LDX first_brick_to_update
-            INX                     ; X <- i+1
+            INX
             STX first_brick_to_update
         RTS

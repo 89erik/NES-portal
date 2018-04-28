@@ -1,0 +1,9 @@
+set bricks_to_update[39] 1
+set n_bricks 40
+set A 1
+start DrawLevel
+assert first_brick_to_update 0
+assert last_brick_to_update 40
+assert bricks_to_update[34] 34
+assert bricks_to_update[35] 35
+assert bricks_to_update[39] 39
